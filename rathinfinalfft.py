@@ -47,6 +47,14 @@ frequencies = np.divide(np.multiply(SAMPLE_RATE, np.arange(0, N/2)), N)
 frequencies=frequencies[0:1024]
 powers=powers[0:1024]
 
+f = open("rathinoutput.text", "w")
+for i  in range(0,1023):
+    f.write("frequency["+str(i)+"]"+str(frequencies[i])+"\n")
+    f.write("power["+str(i)+"]"+str(powers[i])+"\n")
+
+f.close()
+plt.xlabel('Frequency')
+plt.ylabel('Amplitude')
 plots[1].plot(frequencies, powers)
 ## Show plots
 plt.show()
