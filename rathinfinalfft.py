@@ -14,6 +14,7 @@ for i in xvalue:
     xvaluelist.append(i)
 xvaluelist=xvaluelist[:32768]
 X1 = list()
+
 for i in range(0, N):
     X1.append(np.complex(xvalue[i] * 1, 0))
  
@@ -39,7 +40,8 @@ fft(X1)
 X=X1
 # Plotting 
 _, plots = plt.subplots(2)
- 
+
+plots[0].plot(yvalue[0:1000], xvalue[0:1000])
 ## Plot in frequent domain
 powers_all = np.abs(np.divide(X, N//2))
 powers = powers_all[0:N//2]
