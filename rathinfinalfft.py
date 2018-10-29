@@ -37,10 +37,10 @@ def fft(X):
         X[i] = even[i] + t
         X[N//2 + i] = even[i] - t 
 
-fft(X1)
+fft(X1)#call function
 X=X1
 
-end=time.time()
+end=time.time() #stopping timer
 # Plotting 
 _, plots = plt.subplots(2)
 #plot in time domain from dat file
@@ -49,10 +49,10 @@ plots[0].plot(yvalue[0:1000], xvalue[0:1000])
 powers_all = np.abs(np.divide(X, N//2))
 powers = powers_all[0:N//2]
 frequencies = np.divide(np.multiply(SAMPLE_RATE, np.arange(0, N/2)), N)
-frequencies=frequencies[0:1024]
-powers=powers[0:1024]
+frequencies=frequencies[0:1024]#value reduced to plot a graph
+powers=powers[0:1024]#value reduced to plot a graph
 
-f = open("rathinoutput.text", "w")
+f = open("rathinoutput.text", "w")#creating a file for filling data
 for i  in range(0,1023):
     f.write("frequency["+str(i)+"]"+str(frequencies[i])+"\n")
     f.write("power["+str(i)+"]"+str(powers[i])+"\n")
@@ -63,5 +63,5 @@ plt.ylabel('Amplitude')
 plots[1].plot(frequencies, powers)
 ## Show plots
 
-print("execution time ="+str(end-start))
+print("execution time ="+str(end-start))#calculating execution time
 plt.show()
